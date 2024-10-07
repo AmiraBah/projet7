@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/amira/Documents/OPC/Projet7/projet7/mlruns/685302195104521140/853506b7532841ec8efb1b16edd698be/artifacts
+end_time: 1728242405979
+entry_point_name: ''
+experiment_id: '685302195104521140'
+lifecycle_stage: active
+run_id: 853506b7532841ec8efb1b16edd698be
+run_name: XGBoost
+run_uuid: 853506b7532841ec8efb1b16edd698be
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1728242180773
+status: 3
+tags: []
+user_id: amira

@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1728241924559
+current_stage: None
+description: null
+last_updated_timestamp: 1728241924559
+name: CreditScoringModel
+run_id: 46bbc8b67c714dabb791758a2db6823f
+run_link: null
+source: file:///Users/amira/Documents/OPC/Projet7/projet7/mlruns/685302195104521140/46bbc8b67c714dabb791758a2db6823f/artifacts/LogisticRegression
+status: READY
+status_message: null
+storage_location: file:///Users/amira/Documents/OPC/Projet7/projet7/mlruns/685302195104521140/46bbc8b67c714dabb791758a2db6823f/artifacts/LogisticRegression
+user_id: null
+version: 1

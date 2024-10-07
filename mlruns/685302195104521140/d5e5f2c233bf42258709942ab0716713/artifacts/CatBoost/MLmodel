@@ -1,0 +1,20 @@
+artifact_path: CatBoost
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.7
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.5.2
+mlflow_version: 2.16.2
+model_size_bytes: 1265682
+model_uuid: bbe06ea8ea864a1caa447a48d40d614e
+run_id: d5e5f2c233bf42258709942ab0716713
+utc_time_created: '2024-10-06 19:29:40.612603'
