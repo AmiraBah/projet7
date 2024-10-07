@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/amira/Documents/OPC/Projet7/projet7/modelisation/mlruns/952211928161200509/e02afd680d8a4c338539b15a77f78948/artifacts
+end_time: 1728318501194
+entry_point_name: ''
+experiment_id: '952211928161200509'
+lifecycle_stage: active
+run_id: e02afd680d8a4c338539b15a77f78948
+run_name: Dummy
+run_uuid: e02afd680d8a4c338539b15a77f78948
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1728318492004
+status: 3
+tags: []
+user_id: amira

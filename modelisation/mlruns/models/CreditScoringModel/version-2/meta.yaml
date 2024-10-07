@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1728317516628
+current_stage: None
+description: null
+last_updated_timestamp: 1728317516628
+name: CreditScoringModel
+run_id: 90111137d7ff48fd813ff5a7f488a0da
+run_link: null
+source: file:///Users/amira/Documents/OPC/Projet7/projet7/modelisation/mlruns/952211928161200509/90111137d7ff48fd813ff5a7f488a0da/artifacts/LightGBM
+status: READY
+status_message: null
+storage_location: file:///Users/amira/Documents/OPC/Projet7/projet7/modelisation/mlruns/952211928161200509/90111137d7ff48fd813ff5a7f488a0da/artifacts/LightGBM
+user_id: null
+version: 2

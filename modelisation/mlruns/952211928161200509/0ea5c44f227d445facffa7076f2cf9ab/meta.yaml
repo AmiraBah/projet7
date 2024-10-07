@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/amira/Documents/OPC/Projet7/projet7/modelisation/mlruns/952211928161200509/0ea5c44f227d445facffa7076f2cf9ab/artifacts
+end_time: 1728316515039
+entry_point_name: ''
+experiment_id: '952211928161200509'
+lifecycle_stage: active
+run_id: 0ea5c44f227d445facffa7076f2cf9ab
+run_name: LogisticRegression
+run_uuid: 0ea5c44f227d445facffa7076f2cf9ab
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1728316512572
+status: 4
+tags: []
+user_id: amira

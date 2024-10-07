@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1728318491944
+current_stage: None
+description: null
+last_updated_timestamp: 1728318491944
+name: CreditScoringModel
+run_id: 47fca1bf9fb04b2e93f577248ba84362
+run_link: null
+source: file:///Users/amira/Documents/OPC/Projet7/projet7/modelisation/mlruns/952211928161200509/47fca1bf9fb04b2e93f577248ba84362/artifacts/CatBoost
+status: READY
+status_message: null
+storage_location: file:///Users/amira/Documents/OPC/Projet7/projet7/modelisation/mlruns/952211928161200509/47fca1bf9fb04b2e93f577248ba84362/artifacts/CatBoost
+user_id: null
+version: 4

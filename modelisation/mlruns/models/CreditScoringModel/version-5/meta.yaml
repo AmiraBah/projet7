@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1728318501168
+current_stage: None
+description: null
+last_updated_timestamp: 1728318501168
+name: CreditScoringModel
+run_id: e02afd680d8a4c338539b15a77f78948
+run_link: null
+source: file:///Users/amira/Documents/OPC/Projet7/projet7/modelisation/mlruns/952211928161200509/e02afd680d8a4c338539b15a77f78948/artifacts/Dummy
+status: READY
+status_message: null
+storage_location: file:///Users/amira/Documents/OPC/Projet7/projet7/modelisation/mlruns/952211928161200509/e02afd680d8a4c338539b15a77f78948/artifacts/Dummy
+user_id: null
+version: 5
