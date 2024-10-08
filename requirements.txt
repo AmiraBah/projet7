@@ -2,5 +2,8 @@ flask
 gunicorn
 numpy
 scikit-learn
+requests
+streamlit
 fastapi
 uvicorn[standard]
+
