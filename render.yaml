@@ -1,0 +1,8 @@
+version: 1
+services:
+  - type: web
+    name: credit-scoring-api
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
