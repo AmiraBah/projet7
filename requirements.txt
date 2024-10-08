@@ -2,3 +2,5 @@ flask
 gunicorn
 numpy
 scikit-learn
+fastapi
+uvicorn[standard]
