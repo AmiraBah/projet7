@@ -2,7 +2,6 @@
 from fastapi import FastAPI
 import joblib
 import pandas as pd
-from fastapi.responses import RedirectResponse
 
 # Charger le modèle
 pipeline = joblib.load("pipeline.joblib")
@@ -13,11 +12,6 @@ app = FastAPI()
 # Route pour la racine ("/")
 @app.get("/")
 def read_root():
-    return {"message": "Bienvenue à l'API de scoring"}
-
-# Route pour gérer les requêtes HEAD
-@app.head("/")
-def head_root():
     return {"message": "Bienvenue à l'API de scoring"}
 
 # Fonction pour calculer la classe en fonction du seuil
