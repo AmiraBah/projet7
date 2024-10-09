@@ -1,9 +1,5 @@
-flask
-gunicorn
+fastapi
+uvicorn
 numpy
 scikit-learn
-requests
-streamlit
-fastapi
-uvicorn[standard]
-
+joblib
