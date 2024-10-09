@@ -2,7 +2,6 @@
 from fastapi import FastAPI
 import joblib
 import pandas as pd
-from fastapi.responses import RedirectResponse
 
 # Charger le modèle
 pipeline = joblib.load("pipeline.joblib")
@@ -10,15 +9,10 @@ pipeline = joblib.load("pipeline.joblib")
 # Initialiser l'API
 app = FastAPI()
 
-# Route pour la racine ("/")
+# Route pour la racine
 @app.get("/")
-def read_root():
-    return {"message": "Bienvenue à l'API de scoring"}
-
-# Route pour gérer les requêtes HEAD
-@app.head("/")
-def head_root():
-    return {"message": "Bienvenue à l'API de scoring"}
+async def read_root():
+    return {"message": "Bienvenue sur l'API de prédiction de défaut"}
 
 # Fonction pour calculer la classe en fonction du seuil
 def get_prediction_label(probability, threshold=0.53):
