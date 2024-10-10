@@ -16,24 +16,19 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'  # Spécifiez explicitement la version de Node.js
-
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.9'  # Version de Python que vous utilisez
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r requirements.txt  # Installe les dépendances Python
 
     - name: Run tests
       run: |
-        pytest
+        pytest  # Exécute vos tests unitaires
 
   deploy:
     needs: build

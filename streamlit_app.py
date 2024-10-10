@@ -27,7 +27,7 @@ features = {
     "REGION_RATING_CLIENT_W_CITY": st.number_input("REGION_RATING_CLIENT_W_CITY", value=2.0, min_value=0.0, max_value=3.0, step=0.1),  
     "CC_AMT_DRAWINGS_CURRENT_MEAN": st.number_input("CC_AMT_DRAWINGS_CURRENT_MEAN", value=13913.0, min_value=0.0, step=100.0),  # float
     "NAME_INCOME_TYPE_Working": st.number_input("NAME_INCOME_TYPE_Working", value=0.5, min_value=0.0, max_value=1.0, step=0.1),  # float
-    "PREV_NAME_PRODUCT_TYPE_walk_in_MEAN": st.number_input("PREV_NAME_PRODUCT_TYPE_walk-in_MEAN", value=0.5, min_value=0.0, max_value=1.0, step=0.1),  # float
+    "PREV_NAME_PRODUCT_TYPE_walk_in_MEAN": st.number_input("PREV_NAME_PRODUCT_TYPE_walk_in_MEAN", value=0.5, min_value=0.0, max_value=1.0, step=0.1),  # float
     "PREV_CODE_REJECT_REASON_SCOFR_MEAN": st.number_input("PREV_CODE_REJECT_REASON_SCOFR_MEAN", value=0.5, min_value=0.0, max_value=1.0, step=0.1),  # float
     "DAYS_LAST_PHONE_CHANGE": st.number_input("DAYS_LAST_PHONE_CHANGE", value=-100.0, max_value=0.0, step=10.0),  # float
     "APPROVED_DAYS_DECISION_MIN": st.number_input("APPROVED_DAYS_DECISION_MIN", value=-100.0, max_value=0.0, step=10.0),  # float
@@ -36,7 +36,7 @@ features = {
     "REFUSED_HOUR_APPR_PROCESS_START_MIN": st.number_input("REFUSED_HOUR_APPR_PROCESS_START_MIN", value=10.0, min_value=0.0, step=10.0),  # float
     "CODE_GENDER": st.selectbox("CODE_GENDER (0 = Female, 1 = Male)", [0, 1]),  # int
     "BURO_STATUS_C_MEAN_MEAN": st.number_input("BURO_STATUS_C_MEAN_MEAN", value=0.5, min_value=0.0, max_value=1.0, step=0.1),  # float
-    "NAME_EDUCATION_TYPE_Higher_education": st.number_input("NAME_EDUCATION_TYPE_Higher education", value=0.5, min_value=0.0, max_value=1.0, step=0.1),  # float
+    "NAME_EDUCATION_TYPE_Higher_education": st.number_input("NAME_EDUCATION_TYPE_Higher_education", value=0.5, min_value=0.0, max_value=1.0, step=0.1),  # float
     "PREV_NAME_CONTRACT_STATUS_Approved_MEAN": st.number_input("PREV_NAME_CONTRACT_STATUS_Approved_MEAN", value=0.5, min_value=0.0, max_value=1.0, step=0.1),  # float
     "EXT_SOURCE_1": st.number_input("EXT_SOURCE_1", value=0.5, min_value=0.0, max_value=1.0, step=0.1),  # float
     "EXT_SOURCE_2": st.number_input("EXT_SOURCE_2", value=0.5, min_value=0.0, max_value=1.0, step=0.1),  # float
