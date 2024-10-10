@@ -1,7 +1,6 @@
 data
 data_drift
-API
-mlflow_model
 __pycache__
 */catboost_info
 */mlruns
+Procfile

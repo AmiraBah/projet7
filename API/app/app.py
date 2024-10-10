@@ -23,9 +23,16 @@ def get_prediction_label(probability, threshold=0.53):
 
 # Route API pour la prédiction
 @app.post("/predict")
-async def predict(features: dict):
+async def predict(features: Features):
+    """
+    Prédire la probabilité de défaut d'un client.
+
+    - **features**: Un objet JSON contenant les caractéristiques du client.
+    
+    Renvoie un dictionnaire avec la probabilité et la classe.
+    """
     # Convertir les données en DataFrame
-    X = pd.DataFrame([features])
+    X = pd.DataFrame([features.dict()])  # Convertir l'objet Pydantic en dictionnaire
     
     # Imputation
     quantitative_columns = X.select_dtypes(include=[np.number]).columns
@@ -37,6 +44,9 @@ async def predict(features: dict):
     # Prédiction
     prob = model.predict_proba(X)[:, 1]  # Probabilité de défaut (classe 1)
     
+    # Afficher la probabilité pour le débogage
+    logging.info(f"Probability of default: {prob[0]}")
+
     # Calculer la classe
     label = get_prediction_label(prob[0], threshold=0.53)
     
