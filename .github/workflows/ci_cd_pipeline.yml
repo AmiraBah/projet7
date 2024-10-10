@@ -14,10 +14,15 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # Mise à jour vers v3
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'  # Spécifiez explicitement la version de Node.js
 
     - name: Set up Python
-      uses: actions/setup-python@v4  # Mise à jour vers v4
+      uses: actions/setup-python@v4
       with:
         python-version: '3.9'
 
@@ -37,13 +42,13 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # Mise à jour vers v3
+      uses: actions/checkout@v3
 
     - name: Deploy to Render
       env:
         RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}  # Clé API Render
       run: |
-         curl -X POST "https://api.render.com/v1/services/srv-cs373ojv2p9s738u2tg0/deploys" \
+        curl -X POST "https://api.render.com/v1/services/srv-cs373ojv2p9s738u2tg0/deploys" \
           -H "Authorization: Bearer $RENDER_API_KEY" \
           -H "Content-Type: application/json" \
           -d '{}'
