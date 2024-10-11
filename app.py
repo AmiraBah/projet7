@@ -1,5 +1,5 @@
 # Importations nécessaires
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 import joblib
 import pandas as pd
 import logging
@@ -61,22 +61,18 @@ async def predict(features: dict):
     # Vérifiez que toutes les caractéristiques attendues sont présentes
     missing_features = set(expected_features) - set(features.keys())
     if missing_features:
-        return {"error": f"Missing features: {', '.join(missing_features)}"}, 400
+        raise HTTPException(
+            status_code=400, 
+            detail=f"Missing features: {', '.join(missing_features)}"
+        )
     
-    # Convertir les données en DataFrame avec les noms de colonnes
+    # Si toutes les caractéristiques sont présentes, on procède avec la prédiction
     X = pd.DataFrame([features], columns=expected_features)
-
-    # Convertir en tableau NumPy pour la prédiction
     X_np = X.values
     
-    # Utiliser le pipeline pour imputation, normalisation et prédiction
-    prob = pipeline.predict_proba(X_np)[:, 1]  # Probabilité de défaut (classe 1)
-    
-    # Garder la probabilité exacte (pas d'arrondi)
+    prob = pipeline.predict_proba(X_np)[:, 1]
     prob_precise = prob[0]
     
-    # Calculer la classe
     label = get_prediction_label(prob_precise, threshold=0.53)
     
-    # Retourner la probabilité exacte et la classe
     return {"probability": prob_precise, "class": label}
