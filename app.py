@@ -7,7 +7,7 @@ import logging
 # Configurer le logging
 logging.basicConfig(level=logging.INFO)
 
-# Charger le pipeline complet renommé
+# Charger le pipeline 
 try:
     pipeline = joblib.load("pipeline.joblib")
     logging.info("Modèle chargé avec succès.")
@@ -54,7 +54,7 @@ expected_features = [
     "EXT_SOURCE_3"
 ]
 
-## Route pour la racine ("/")
+## Route pour la racine 
 @app.get("/")
 def read_root():
     logging.info("Received GET request at /")
@@ -79,7 +79,7 @@ async def predict(features: dict):
             detail=f"Missing features: {', '.join(missing_features)}"
         )
     
-    # Si toutes les caractéristiques sont présentes, on procède avec la prédiction
+    # Si toutes les caractéristiques sont présentes, procéder à la prédiction
     X = pd.DataFrame([features], columns=expected_features)
     X_np = X.values
     

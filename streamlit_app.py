@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-# URL de l'API FastAPI (celle-ci fonctionne localement)
+# URL de l'API FastAPI 
 API_URL = "http://127.0.0.1:8000/predict"
 
 # Interface utilisateur Streamlit

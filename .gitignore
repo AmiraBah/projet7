@@ -1,8 +1,6 @@
 data
 data_drift
 __pycache__
-*/catboost_info
 */mlruns
 Procfile
-API
-app_copy
+Test_modelisation

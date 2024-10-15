@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from app import app  # Assurez-vous que l'application FastAPI est importée correctement
+from app import app  
 
 client = TestClient(app)
 
@@ -74,8 +74,7 @@ def test_predict_missing_features():
     # Vérifier que le contenu de 'detail' contient bien le message d'erreur attendu
     assert "Missing features" in response_json["detail"]
     
-    # Optionnel : Vérifier que certaines des caractéristiques manquantes sont listées dans le message d'erreur
+    # Vérifier que certaines des caractéristiques manquantes sont listées dans le message d'erreur
     missing_features_list = ["CC_CNT_DRAWINGS_ATM_CURRENT_VAR", "CC_AMT_DRAWINGS_CURRENT_MEAN"]
     for feature in missing_features_list:
-        assert feature in response_json["detail"]  # Vérifier que chaque feature manquante est mentionnée dans 'detail'
-
+        assert feature in response_json["detail"]  
