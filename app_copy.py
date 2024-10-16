@@ -3,7 +3,6 @@ from fastapi import FastAPI, HTTPException
 import joblib
 import pandas as pd
 import logging
-import numpy as np
 
 # Configurer le logging
 logging.basicConfig(level=logging.INFO)
@@ -55,7 +54,7 @@ expected_features = [
     "EXT_SOURCE_3"
 ]
 
-# Route pour la racine 
+## Route pour la racine 
 @app.get("/")
 def read_root():
     logging.info("Received GET request at /")
@@ -82,18 +81,15 @@ async def predict(features: dict):
     
     # Si toutes les caractéristiques sont présentes, procéder à la prédiction
     X = pd.DataFrame([features], columns=expected_features)
-    
-    # Imputer les NaN par 0
-    X.fillna(0, inplace=True)  # Impute les NaN avec 0
-
     X_np = X.values
     
     try:
-        prob = pipeline.predict_proba(X_np)[:, 1]  # Récupération de la probabilité de la classe 1
-        label = get_prediction_label(prob[0], threshold=0.53)  # On passe prob[0] pour le label
-        logging.info(f"Prediction made: probability={prob[0]}, class={label}")
+        prob = pipeline.predict_proba(X_np)[:, 1]
+        prob_precise = prob[0]
+        label = get_prediction_label(prob_precise, threshold=0.53)
+        logging.info(f"Prediction made: probability={prob_precise}, class={label}")
     except Exception as e:
         logging.error(f"Error during prediction: {e}")
         raise HTTPException(status_code=500, detail="Error during prediction.")
     
-    return {"probability": prob[0], "class": label}
+    return {"probability": prob_precise, "class": label}

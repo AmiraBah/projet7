@@ -4,3 +4,8 @@ __pycache__
 */mlruns
 Procfile
 Test_modelisation
+test_modelisation_2
+app_copy
+pipeline_copy
+streamlit_app_copy
+catboost_info
