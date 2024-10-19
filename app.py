@@ -90,10 +90,11 @@ async def predict(features: dict):
     
     try:
         prob = pipeline.predict_proba(X_np)[:, 1]  # Récupération de la probabilité de la classe 1
-        label = get_prediction_label(prob[0], threshold=0.53)  # On passe prob[0] pour le label
-        logging.info(f"Prediction made: probability={prob[0]}, class={label}")
+        prob = round(prob[0], 2)
+        label = get_prediction_label(prob, threshold=0.53)  # On passe prob[0] pour le label
+        logging.info(f"Prediction made: probability={prob}, class={label}")
     except Exception as e:
         logging.error(f"Error during prediction: {e}")
         raise HTTPException(status_code=500, detail="Error during prediction.")
     
-    return {"probability": prob[0], "class": label}
+    return {"probability": prob, "class": label}
