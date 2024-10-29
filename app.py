@@ -90,11 +90,31 @@ async def predict(features: dict):
     
     try:
         prob = pipeline.predict_proba(X_np)[:, 1]  # Récupération de la probabilité de la classe 1
-        prob = round(prob[0], 2)
-        label = get_prediction_label(prob, threshold=0.53)  # On passe prob[0] pour le label
-        logging.info(f"Prediction made: probability={prob}, class={label}")
+        label = get_prediction_label(prob[0], threshold=0.53)  # On passe prob[0] pour le label
+        logging.info(f"Prediction made: probability={prob[0]}, class={label}")
     except Exception as e:
         logging.error(f"Error during prediction: {e}")
-        raise HTTPException(status_code=500, detail="Error during prediction.")
+        raise HTTPException(status_code=500, detail=f"Error during prediction: {str(e)}")
     
-    return {"probability": prob, "class": label}
+    return {"probability": prob[0], "class": label}
+
+
+# Route API pour obtenir les importances des caractéristiques
+@app.get("/feature_importances")
+async def get_feature_importances():
+    try:
+        # Extraire le modèle de régression logistique du pipeline
+        logistic_model = pipeline.named_steps['classifier']
+        feature_importances = logistic_model.coef_[0]  # Récupérer les coefficients du modèle
+
+        # Associer les coefficients aux noms de caractéristiques
+        features_importances_dict = dict(zip(expected_features, feature_importances))
+        
+        return features_importances_dict
+    except Exception as e:
+        logging.error(f"Erreur lors de la récupération des importances des caractéristiques : {e}")
+        raise HTTPException(status_code=500, detail=f"Erreur lors de la récupération des importances : {str(e)}")
+
+# Démarrer le serveur si exécuté directement
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
