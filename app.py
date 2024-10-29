@@ -115,6 +115,3 @@ async def get_feature_importances():
         logging.error(f"Erreur lors de la récupération des importances des caractéristiques : {e}")
         raise HTTPException(status_code=500, detail=f"Erreur lors de la récupération des importances : {str(e)}")
 
-# Démarrer le serveur si exécuté directement
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
