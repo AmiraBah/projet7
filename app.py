@@ -57,6 +57,7 @@ expected_features = [
 
 # Route pour la racine 
 @app.get("/")
+@app.head("/")
 def read_root():
     logging.info("Received GET request at /")
     return {"message": "Bienvenue à l'API de scoring"}
