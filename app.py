@@ -115,4 +115,3 @@ async def get_feature_importances():
     except Exception as e:
         logging.error(f"Erreur lors de la récupération des importances des caractéristiques : {e}")
         raise HTTPException(status_code=500, detail=f"Erreur lors de la récupération des importances : {str(e)}")
-
