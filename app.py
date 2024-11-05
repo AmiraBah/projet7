@@ -64,7 +64,8 @@ def read_root():
 
 # Fonction pour calculer la classe en fonction du seuil
 def get_prediction_label(probability, threshold=0.53):
-    return "Accepted" if probability < threshold else "Rejected"
+    return "Accepted" if probability >= threshold else "Rejected"
+
 
 # Route API pour la prédiction
 @app.post("/predict")
