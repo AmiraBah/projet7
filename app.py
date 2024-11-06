@@ -4,6 +4,7 @@ import joblib
 import pandas as pd
 import logging
 import numpy as np
+from sklearn.preprocessing import MinMaxScaler
 
 # Configurer le logging
 logging.basicConfig(level=logging.INFO)
@@ -66,7 +67,6 @@ def read_root():
 def get_prediction_label(probability, threshold=0.53):
     return "Accepted" if probability >= threshold else "Rejected"
 
-
 # Route API pour la prédiction
 @app.post("/predict")
 async def predict(features: dict):
@@ -87,11 +87,14 @@ async def predict(features: dict):
     
     # Imputer les NaN par 0
     X.fillna(0, inplace=True)  # Impute les NaN avec 0
-
-    X_np = X.values
+    
+    # Normalisation avec MinMaxScaler
+    scaler = MinMaxScaler()
+    X_scaled = scaler.fit_transform(X)  # Normaliser les données d'entrée
     
     try:
-        prob = pipeline.predict_proba(X_np)[:, 1]  # Récupération de la probabilité de la classe 1
+        # Prédiction avec le modèle
+        prob = pipeline.predict_proba(X_scaled)[:, 1]  # Récupération de la probabilité de la classe 1
         label = get_prediction_label(prob[0], threshold=0.53)  # On passe prob[0] pour le label
         logging.info(f"Prediction made: probability={prob[0]}, class={label}")
     except Exception as e:
